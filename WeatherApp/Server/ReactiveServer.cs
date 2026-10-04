@@ -31,9 +31,13 @@ namespace WeatherApp.Server
 		public async Task StartAsync()
 		{
 			_listener.Start();
-			Console.WriteLine("Server started... Listening for requests at " + _listener.Prefixes.ToString());
+			Console.WriteLine("Server started... Listening for requests at:");
+            foreach (var prefix in _listener.Prefixes)
+            {
+                Console.WriteLine(prefix);
+            }
 
-			while (true)
+            while (true)
 			{
 				var context = await _listener.GetContextAsync();
 				_requestStream.OnNext(context); // salje context server -> OpenMateoApi

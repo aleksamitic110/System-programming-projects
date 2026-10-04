@@ -50,7 +50,7 @@ namespace WeatherApp.Server
 			pipeline.Where(log => log.AirQuality?.NO2 > thresholds.NO2_MAX)
 					.Subscribe(log =>
 					{
-						Console.WriteLine($"⚠️ HIGH NO2 ALERT! {log.AirQuality?.NO2 ?? 0} µg/m3 at {log.Timestamp}");
+						Console.WriteLine($"HIGH NO2 ALERT! {log.AirQuality?.NO2 ?? 0} µg/m3 at {log.Timestamp}");
 					});
 
 			//Agregacija prosecnih vrednosti na po 5 minuta
